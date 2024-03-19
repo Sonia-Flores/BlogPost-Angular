@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { PostsService } from '../../services/posts.service';
+import { POSTS } from '../../data/posts.db';
+import { Post } from '../../interfaces/post.interface';
+
 
 @Component({
   selector: 'app-lista-posts',
@@ -8,5 +12,20 @@ import { Component } from '@angular/core';
   styleUrl: './lista-posts.component.css'
 })
 export class ListaPostsComponent {
+
+    arrPosts: Post[] = []
+    POSTS: Post[] = POSTS
+    postService = inject(PostsService)
+
+    ngOnInit(){
+      this.arrPosts = this.postService.getAll();
+    }
+
+    onChange($event: any) {
+      if($event.target.value === "todo"){
+        return this.arrPosts = this.postService.getAll();
+      }
+      return this.arrPosts = this.postService.getByCategory($event.target.value);
+    }
 
 }

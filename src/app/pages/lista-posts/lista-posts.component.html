@@ -1,1 +1,23 @@
-<p>lista-posts works!</p>
+<h1>TU BLOG FAVORITO</h1>
+<h5>Ponte al día con las noticias más frescas y publica para que otros puedan leerte</h5>
+    <div class="row posts ">
+        <div class="mb-3 " >
+            <select class="form-select" (change)="onChange($event)">
+                <option value="todo">Mostrar todo</option>
+              @for (post of POSTS ; track $index) {
+                <option [value]="post.categoria">{{post.categoria}}</option>
+              }
+            </select>
+          </div>
+        @for (post of arrPosts; track $index) {
+            <div class="col-12 col-md-6 col-lg-4 post">
+                <h3>{{post.titulo}}</h3>
+                <img [src]="post.imagen" class="img-fluid">
+                <p class="autor">{{post.autor}}</p>
+                <p class="texto">{{post.texto}}</p>
+                <div class="foot">
+                    <p class="categoria"> {{post.categoria}}</p>
+                    <p class="fecha">{{post.fecha}}</p>
+                </div>
+            </div>
+        }
