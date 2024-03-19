@@ -22,12 +22,21 @@ export class FormularioComponent {
   });
 
   postsServices = inject(PostsService);
-  arrPosts: Post[] = this.postsServices.getAll();
   router = inject(Router);
+  
+  arrPosts: Post[] = this.postsServices.getAll();
+  categorias: string[]= this.postsServices.getCategories();
+  
+
 
   onSubmit() {
     this.postsServices.createPost(this.formulario.value);
     this.router.navigateByUrl('/posts')
+  }
+
+  checkError(controlName: string, errorName: string) {
+    return this.formulario.get(controlName)!.hasError(errorName) &&
+      this.formulario.get(controlName)!.touched;
   }
 
  

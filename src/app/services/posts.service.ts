@@ -17,14 +17,20 @@ export class PostsService {
   }
 
   getAll(){
-    return [...POSTS].sort((a, b) => {
-      const dateA = new Date(a.fecha.split('/').reverse().join('-'));
-      const dateB = new Date(b.fecha.split('/').reverse().join('-'));
-      return dateB.getTime() - dateA.getTime();
-    });
+    return [...POSTS].sort(this.sortDate);
   }
 
   getByCategory(category: string){
-    return POSTS.filter(post => post.categoria === category)
+    return POSTS.filter(post => post.categoria === category).sort(this.sortDate);
+  }
+
+  getCategories():string[]{
+    return [...new Set(POSTS.map((post) => post.categoria))]
+  }
+
+  sortDate(a:Post, b:Post){
+    const dateA = new Date(a.fecha.split('/').reverse().join('-'));
+    const dateB = new Date(b.fecha.split('/').reverse().join('-'));
+    return dateB.getTime() - dateA.getTime();
   }
 }

@@ -2,29 +2,41 @@
 <form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="mt-5">
     <div class="mb-3">
       <label class="form-label">Título</label>
-      <input type="text" class="form-control" formControlName="titulo" />
+      <input type="text" class="form-control" formControlName="titulo" placeholder="Introduce el título"/>
+      @if (checkError("titulo", "required")) {
+        <p class="error">El campo titulo es requerido</p>
+    }
     </div>
     <div class="mb-3">
       <label class="form-label">Texto</label>
-      <input type="text" class="form-control" formControlName="texto" />
+      <input type="text" class="form-control" formControlName="texto" placeholder="Introduce el texto"/>
+      @if (checkError("texto", "required")) {
+        <p class="error">El campo texto es requerido</p>
+    }
     </div>
     <div class="mb-3">
       <label class="form-label">Autor</label>
-      <input type="text" class="form-control" formControlName="autor" />
+      <input type="text" class="form-control" formControlName="autor" placeholder="Introduce el autor"/>
+      @if (checkError("autor", "required")) {
+        <p class="error">El campo autor es requerido</p>
+    }
     </div>
     <div class="mb-3">
       <label class="form-label">imagen</label>
-      <input type="text" class="form-control" formControlName="imagen" />
+      <input type="text" class="form-control" formControlName="imagen" placeholder="Introduce la url de la imagen" />
+      @if (checkError("imagen", "required")) {
+        <p class="error">El campo imagen es requerido</p>
+    }
     </div>
     <div class="mb-3">
         <label class="form-label">Categoría</label>
         <select class="form-select" formControlName="categoria">
-          @for (post of arrPosts ; track $index) {
-            <option [value]="post.categoria">{{post.categoria}}</option>
+          @for (categoria of categorias ; track $index) {
+            <option [value]="categoria">{{categoria}}</option>
           }
         </select>
       </div>
       
-    <input type="submit" value="Enviar" class="btn btn-primary" />
+    <input type="submit" value="Enviar" class="btn btn-primary" [disabled]="!formulario.valid"/>
   </form>
   

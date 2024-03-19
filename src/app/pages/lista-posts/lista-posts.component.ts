@@ -14,11 +14,13 @@ import { Post } from '../../interfaces/post.interface';
 export class ListaPostsComponent {
 
     arrPosts: Post[] = []
+    categorias:string[] = []
     POSTS: Post[] = POSTS
     postService = inject(PostsService)
 
     ngOnInit(){
       this.arrPosts = this.postService.getAll();
+      this.categorias = this.postService.getCategories()
     }
 
     onChange($event: any) {

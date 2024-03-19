@@ -1,78 +1,67 @@
 @import url(https://fonts.googleapis.com/css?family=Alegreya:regular,500,600,700,800,900,italic,500italic,600italic,700italic,800italic,900italic);
 
-h1{
- text-align:  center;
- font-family: Alegreya;
- margin-top: 40px;
-}
-h5{
+h1 {
   text-align: center;
+  font-family: 'Alegreya', sans-serif;
+  margin-top: 40px;
 }
-.posts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 40px;
-  }
-  
-  .post {
-    width: calc(33.33% - 20px);
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 1px 1px 10px #666;
-    display: flex; 
-    flex-direction: column; 
-  }
-  
-  .post-content {
-    flex-grow: 1; /* Hace que el contenido principal ocupe el espacio restante */
-  }
-  
-  .post h3 {
-    margin-top: 7px;;
-    margin-bottom: 20px;
-    text-align: center;
-    font-family: Alegreya;
-  }
-  
-  .post p {
-    margin-bottom: 10px;
-  }
 
-  p.texto{
-    font-weight: bold;
-    background-color: rgb(250, 250, 176);
-    padding: 10px;;
-  }
-  p.autor{
-    margin-top: 10px;
-    font-style: italic;
-  }
+h5 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+p.texto {
+  font-weight: bold;
+  background-color: rgb(250, 250, 176);
+  padding: 10px;
+}
+
+p.autor {
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.post h3 {
+  margin-top: 7px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Alegreya', sans-serif;
+}
+
+p.fecha {
+  font-size: 0.8rem;
+}
+
+p.categoria {
+  background-color: rgb(205, 242, 234);
+  padding: 8px;
+  border-radius: 10px;
   
-  .post img {
-    max-height: 200px; 
-    object-fit: cover; 
-    border-top-left-radius: 8px; 
-    border-top-right-radius: 8px; 
-  }
+}
 
-  div.foot{
-    display: flex;
-    justify-content: space-between;
-  }
+.post {
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 1px 1px 10px #666;
+ 
+}
+.post img {
+  width: 100%; 
+  height: 200px; 
+  object-fit: cover; 
+  border-top-left-radius: 8px; 
+  border-top-right-radius: 8px; 
+}
 
-  p.fecha{
-    font-size: 0.8rem;
-  }
+.foot{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  p.categoria{
-    background-color: rgb(205, 242, 234);
-    padding: 8px;
-    border-radius: 10px;
-  }
-
-  .filtro{
-    width: 100px;
-  }
+.posts{
+  row-gap: 15px;
+  margin-bottom: 40px;
+}
